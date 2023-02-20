@@ -25,15 +25,23 @@ burrow=read_sheet("https://docs.google.com/spreadsheets/d/1ckVjS4Jw9o_eg_l_TAwDF
 ```
 
 
-# Read in BRIs and phi values
+# Read in Species, BRIs and phi values
 # Convert phi sediment granule size to micrometers and show values
-# Create dataframe
 
 ```{r}
+species=burrow$Species
 phivalues=as.numeric(burrow$Granule_Size_phi, na.rm=FALSE)
 brivalues=as.numeric(burrow$`Mean BRI`, na.rm=FALSE)
 
 muvalues  <- convert.units(phi = phivalues)
 muvalues
 ```
+# Create dataframe
+
+```{r}
+columnNames <- c("Granule Size (mu)", "Mean Burrowing Rate Index")
+briDataFrame=data.frame(species, muvalues, brivalues, colnames(evalnames))
+```
+
+
 
