@@ -17,6 +17,7 @@ library(EMMAgeo)
 
 
 # Read in Sheets, Pull in BRI data
+
 ```{r reading in google sheets}
 sheetnames=sheet_names("https://docs.google.com/spreadsheets/d/1ckVjS4Jw9o_eg_l_TAwDFNp_evuu36sFHmXyUqT6YqA")
 evalnames=grep("Interspecific BRIs", sheetnames, value=T)
@@ -36,6 +37,7 @@ brivalues=as.numeric(burrow$`Mean BRI`, na.rm=FALSE)
 muvalues  <- convert.units(phi = phivalues)
 muvalues
 ```
+
 # Create dataframe
 
 ```{r}
