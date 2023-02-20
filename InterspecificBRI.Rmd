@@ -41,8 +41,7 @@ muvalues
 # Create dataframe
 
 ```{r}
-columnNames <- c("Granule Size (mu)", "Mean Burrowing Rate Index")
-briDataFrame=data.frame(species, muvalues, brivalues, colnames(evalnames))
+briDataFrame=data.frame(species, muvalues, brivalues)
 ```
 
 
