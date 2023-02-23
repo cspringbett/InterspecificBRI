@@ -36,6 +36,11 @@ brivalues=as.numeric(burrow$`Mean BRI`, na.rm=FALSE)
 
 muvalues  <- convert.units(phi = phivalues)
 muvalues
+
+
+burrow$Granule_Size_mcm[!is.na(burrow$Granule_Size_phi)]=convert.units(phi=burrow$Granule_Size_phi[!is.na(burrow$Granule_Size_phi)])
+
+
 ```
 
 # Create dataframe
