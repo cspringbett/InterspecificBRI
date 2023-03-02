@@ -30,17 +30,7 @@ burrow=read_sheet("https://docs.google.com/spreadsheets/d/1ckVjS4Jw9o_eg_l_TAwDF
 # Convert phi sediment granule size to micrometers and show values
 
 ```{r}
-species=burrow$Species
-phivalues=as.numeric(burrow$Granule_Size_phi, na.rm=FALSE)
-brivalues=as.numeric(burrow$`Mean BRI`, na.rm=FALSE)
-
-muvalues  <- convert.units(phi = phivalues)
-muvalues
-
-
 burrow$Granule_Size_mcm[!is.na(burrow$Granule_Size_phi)]=convert.units(phi=burrow$Granule_Size_phi[!is.na(burrow$Granule_Size_phi)])
-
-
 ```
 
 # Create dataframe
@@ -49,5 +39,49 @@ burrow$Granule_Size_mcm[!is.na(burrow$Granule_Size_phi)]=convert.units(phi=burro
 briDataFrame=data.frame(species, muvalues, brivalues)
 ```
 
+
+#Plotting
+```{r}
+bivalves=unique(burrow$Species[burrow$Group=="Bivalve"])
+octopuses=unique(burrow$Species[burrow$Group=="Octopus"])
+crustaceans=unique(burrow$Species[burrow$Group=="Crustacean"])
+blues=sample(grep("blue",colors(),value = T))
+reds=sample(grep("red",colors(),value=T))
+greens=sample(grep("green",colors(),value=T))
+
+plot(Mean_BRI~Granule_Size_mcm,data=burrow,type="n",axes=F,ylab="",xlab="",log="x")
+axis(1)
+axis(2)
+
+for (i in 1:length(bivalves)){
+  points(Mean_BRI~Granule_Size_mcm,data=burrow[burrow$Species==bivalves[i],],col=blues[i],type="l")
+  points(Mean_BRI~Granule_Size_mcm,data=burrow[burrow$Species==bivalves[i],],pch=21,bg=blues[i])
+  }
+
+for (i in 1:length(crustaceans)){
+  points(Mean_BRI~Granule_Size_mcm,data=burrow[burrow$Species==crustaceans[i],],col=reds[i],type="l")
+  points(Mean_BRI~Granule_Size_mcm,data=burrow[burrow$Species==crustaceans[i],],pch=21,bg=reds[i])
+  }
+
+
+for (i in 1:length(octopuses)){
+  points(Mean_BRI~Granule_Size_mcm,data=burrow[burrow$Species==octopuses[i],],col=greens[i],type="l")
+  points(Mean_BRI~Granule_Size_mcm,data=burrow[burrow$Species==octopuses[i],],pch=21,bg=greens[i])
+  }
+
+
+
+```
+
+
+
+
+
+```{r}
+plot()
+
+
+
+```
 
 
