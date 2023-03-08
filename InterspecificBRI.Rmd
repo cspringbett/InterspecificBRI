@@ -42,6 +42,8 @@ briDataFrame=data.frame(species, muvalues, brivalues)
 
 #Plotting
 ```{r}
+png("gransize.png")
+
 bivalves=unique(burrow$Species[burrow$Group=="Bivalve"])
 octopuses=unique(burrow$Species[burrow$Group=="Octopus"])
 crustaceans=unique(burrow$Species[burrow$Group=="Crustacean"])
@@ -69,7 +71,7 @@ for (i in 1:length(octopuses)){
   points(Mean_BRI~Granule_Size_mcm,data=burrow[burrow$Species==octopuses[i],],pch=21,bg=greens[i])
   }
 
-
+dev.off()
 
 ```
 
