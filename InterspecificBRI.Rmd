@@ -51,7 +51,7 @@ blues=sample(grep("blue",colors(),value = T))
 reds=sample(grep("red",colors(),value=T))
 greens=sample(grep("green",colors(),value=T))
 
-plot(Mean_BRI~Granule_Size_mcm,data=burrow,type="n",axes=F,ylab="",xlab="",log="x")
+plot(Mean_BRI~Granule_Size_mcm,data=burrow,type="n",axes=F,ylab="",xlab="",log="xy")
 axis(1)
 axis(2)
 
