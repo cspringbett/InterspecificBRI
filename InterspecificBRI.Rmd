@@ -51,9 +51,9 @@ blues=sample(grep("blue",colors(),value = T))
 reds=sample(grep("red",colors(),value=T))
 greens=sample(grep("green",colors(),value=T))
 
-plot(Mean_BRI~Granule_Size_mcm,data=burrow,type="n",axes=F,ylab="",xlab="",log="xy")
+plot(Mean_BRI~Granule_Size_mcm,data=burrow,type="n",axes=F,yaxt="n",ylab="log BRI",xlab="Sediment Granule Size (um)",log="xy")
 axis(1)
-axis(2)
+axis(2, xaxp=c(0.001,0.01,0.1,1,10,100))
 
 for (i in 1:length(bivalves)){
   points(Mean_BRI~Granule_Size_mcm,data=burrow[burrow$Species==bivalves[i],],col=blues[i],type="l")
