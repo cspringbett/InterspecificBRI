@@ -16,7 +16,7 @@ library(EMMAgeo)
 ```
 
 
-# Read in Sheets, Pull in BRI data
+# Read in csv, Pull in BRI data
 
 ```{r}
 
